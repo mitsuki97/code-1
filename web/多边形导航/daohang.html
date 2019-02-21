@@ -1,0 +1,89 @@
+<!doctype html><!--声明文档类型：html-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"><!--字符编码:utf-8国际编码-->
+        <meta name="Keywords" content="关键词1,关键词2">
+        <meta name="Description" content="描述">
+        <title>旋转动画</title>
+        <style>/* css样式 */
+            *{/*通配符: 选择到所有的标签元素*/
+                margin:0;/*外边距*/
+                padding:0;/*内边距*/
+            }
+            body{
+                background:url("images/22.jpg");
+            }
+            #nav{/* # id选择器*/
+                width:950px;
+                height:500px;
+                /*background:#993366;背景颜色*/
+                margin:100px auto;/*上下为100px 左右自动(居中)*/
+            }
+            #nav ul li{/*混合选择器:选择到越详细优先级越高*/
+                position:relative;/*相对定位:参考物 相对于自己本身的位置定位*/
+                float:left;/*浮动:与父元素的左端对齐 依次的往右端显示 显示不下就换行接着依次显示 */
+                list-style:none;/*去除前面的小黑圆点*/
+                width:180px;
+                height:105px;
+                /*透明背景颜色:red红色 green绿色 blue蓝色(0-255) a透明度(0-1)*/
+                background:rgba(0,0,0,0.5);
+                margin:30px 5px;
+            }
+            #nav ul li.six{
+                margin-left:100px;
+                /*margin-left:100px !important;*/
+            }
+            /*
+                用css伪类来做
+            */
+            #nav ul li:before,#nav ul li:after{/*在li内容的前面添加内容*/
+                content:"";/*伪类的内容:如果没有内容就留空 但是这个属性必须得写上*/
+                position:absolute;/*漂浮起来了 脱离文档流了*/
+                left:0;
+                top:0;
+                width:180px;
+                height:105px;
+                background:rgba(0,0,0,0.5);
+                transform:rotate(60deg);
+            }
+            #nav ul li:after{/*在li内容的后面添加内容*/
+                transform:rotate(-60deg);
+            }
+            #nav ul li img{
+                position:absolute;
+                left:0;top:0;right:0;bottom:0;
+                margin:auto;
+                z-index:10;/*层级:只有定位元素才能设置层级 值越大越在上面显示*/
+                transition:0.8s;/*动画过渡*/
+            }
+            /*css的动态伪类:鼠标移上去改变什么值*/
+            #nav ul li img:hover{
+                /*css3变换: 旋转360度 放大*/
+                transform:rotate(360deg) scale(1.4);
+            }
+        </style>
+    </head>
+    <body>
+        <!--div盒子模型标签 宽度 高度 位置 背景 边框(css样式)-->
+        <div id="nav"><!--id="自定义的名称" -->
+            <ul><!--无序列表标签-->
+                <li>
+                    <img src="images/1.png">
+                </li>
+                <li><img src="images/2.png"></li>
+                <li><img src="images/3.png"></li>
+                <li><img src="images/4.png"></li>
+                <li><img src="images/5.png"></li>
+                <li class="six"><img src="images/6.png"></li>
+                <li><img src="images/7.png"></li>
+                <li><img src="images/8.png"></li>
+                <li><img src="images/9.png"></li>
+                <li><img src="images/10.png"></li>
+                <li><img src="images/11.png"></li>
+                <li><img src="images/12.png"></li>
+                <li><img src="images/13.png"></li>
+                <li><img src="images/14.png"></li>
+            </ul>
+        </div>
+    </body>
+</html>

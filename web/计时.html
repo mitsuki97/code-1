@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计时器</title>
+<script type="text/javascript">
+var s1=0; //毫秒
+var s2=0;  //秒
+var s3=0;  //分钟
+var s4=0; //小时
+var s=null;
+    function timer(){		
+		s1=s1+50;
+		if (s1>=1000) {s2++;s1=0;}	
+		if (s2>=60) {s3++;s2=0;}	
+		if (s3>=60) {s4++;s3=0;}	
+		document.getElementById("show").value="已经计时了"+s3+"分钟"+s2+"秒"+s1+"毫秒";
+		}
+    function  start1(){ 
+		 clearInterval(s); 
+	     s=setInterval(timer,50);
+		 document.getElementById("start").disabled =true;
+		}				
+    function stop1(){
+	    clearInterval(s);
+		document.getElementById("start").disabled =false;
+		}
+    function restart(){
+	    clearInterval(s);
+		document.getElementById("show").value="已经计时了0毫秒";		
+		document.getElementById("start").disabled =false;
+		s1=s2=s3=0;
+		}		
+</script>
+</head>
+<body>
+   <input type="button" value="已经计时了0毫秒" id="show" style="width:300px;"/><p>   
+   <input type="button" value="开始" id="start" onClick="start1()"style="width:100px;"/>
+   <input type="button" value="停止" id="stop" onClick="stop1()"style="width:100px;" />
+   <input type="button" value="复位" id="stop" onClick="restart()"style="width:100px;" />
+
+
+</body>
+</html>

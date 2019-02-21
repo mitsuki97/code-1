@@ -1,0 +1,13 @@
+tftp -g -r **** 193.169.1.2
+chmod u+x ./***
+
+
+# echo N > /sys/class/gpio/export
+[root@Loongson:/]#cat /sys/class/gpio/gpio49/direction //查看方向
+[root@Loongson:/]#cat /sys/class/gpio/gpio49/value //查看 GPIO 排列序号为 N 的 GPIO 电平
+
+[root@Loongson:/]# echo out > /sys/class/gpio/gpio49/direction //设置 GPIO 排列序号为 49 的 GPIO 方
+向为输出
+[root@Loongson:/]# echo 0 > /sys/class/gpio/gpio49/value //输出低电平
+[root@Loongson:/]# echo 1 > /sys/class/gpio/gpio49/value //输出高电平
+

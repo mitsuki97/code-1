@@ -1,0 +1,1816 @@
+
+Q1
+FusionInsight HD的Streaming对于Zookeeper弱依赖，即使Zookeeper故障Streaming可以正常提供服务。
+A.对
+B.错
+Answer: A
+
+Q2
+下列哪些组件必须依赖于Zookeeper才能运行？
+A.HDFS
+B.HBase
+C.Spark
+D.YARN
+Answer: AB
+
+Q3
+当Zookeeper集群的节点数为5节点时，请问集群的容灾能力和多少节点是等价的？
+A.3
+B.4
+C.6
+D.以上都不是
+Answer: C
+
+Q4
+在Zookeeper的服务模型中，Leader节点以主备模式存在，其他节点都属于Follower节点。
+A.对
+B.错
+Answer: B
+
+Q5
+下面关于Zookeeper的特性描述错误的是？
+A.客户端所发送的更新会按照他们被发送的顺序进行应用
+B.一条消息要被超过半数的Server接收，他将可以成功写入磁盘
+C.消息更新只能成功或失败，没有中间状态
+D.Zookeeper节点数必须为奇数个
+Answer: D
+
+Q6
+Zookeeper所有节点都可以处理请求
+A.对
+B.错
+Answer: A
+
+Q7
+ZooKeeper的节点使用ACL控制访问策略，ACL可应用于集群中的任一znode节点上。
+A.错
+B.对
+Answer: A
+
+Q8
+下面关于ZooKeeper的说法错误的是。
+A.ZooKeeper集群在启动时就选出Leader角色。
+B.如果ZooKeeper在同步消息过程中发生中断，故障恢复后可根据故障前的传输状态继续同步，即支持断点续传。
+C.ZooKeeper使用自定义的原子消息协议，保证整个系统中节点数据的一致性。
+D.Leader节点在接收到数据变更请求后，先写磁盘再写内存。
+Answer: B
+
+HBASE
+Q1		
+Fusionlnsight HD 系统中HBase 支持动态扩展列。		
+A. 正确		
+B. 错误		
+Answer: A		
+
+Q2
+Fusionlnsight HD 的HBase 中的一张表情包含以下几个Region [10,20],[20,30],[30,+=]，分别编号123，那么11，20，222，分别属于哪个Region?
+A.113
+B.123
+C.122
+D.112
+Answer: C
+
+Q3
+HBase中数据存储的文件格式是什么？
+A.HFlie
+B.SequenceFile
+C.HLog
+D.TXTflie
+Answer: AC
+
+
+
+Q4
+执行HBase 数据业务，需要读取哪几部分数据？
+A. HFile		
+B. HLog		
+C. MemStore		
+D. HDFS		
+Answer: AC	
+
+Q5
+Hadoop平台中HBase的Region 是由哪个服务进程来管理？
+A.HMaster
+B.Datanode
+C.RegionServer
+D.Zookeeper
+Answer: C
+
+
+Q6
+HBase 集群定时执行Compaction 的目的是什么？（多选）
+A. 减少同一个Region ,同一个ColumnFamily 下的文件数目
+B.提升数据读取性能
+C.减少同一个 ColumnFamily 的文件数据
+D.减少同一个 Region 的文件数目
+Answer: AB
+
+Q7
+Fusionlnsight HD系统中 HBase 元数据Meta region 路由信息保存在哪？
+A.Root表
+B.ZooKeeper
+C.HMaster
+D.Mata表
+Answer: B
+
+Q8
+Fusionlnsight HD系统中，以下选项哪一个不是HBase写数据流程涉及的角色或服务？
+A.Zookeeper
+B.HDFS
+C.HMaster
+D.RegionServer
+Answer: C
+
+Q9
+以下选项哪一个不是HBase读取数据流程涉及的角色或服务？
+A.Zookeeper
+B.HDFS
+C.HMaster
+D.RegionServer
+
+Q10
+Loader仅支持关系型数据库与HBase之间的数据导入导出。
+A.对
+B.错
+Answer: B
+
+Q11
+Fusionlnsight HD 的HBase 中会保存一张用户信息表meg-table,Rowkey 为用户ID ,其中一列为用户昵称，现在按先后顺序往这列写入三个KeyValue:001:Li,001:Mary,001:Lily，请问scan'meg-table',{ERSIONS=>2}会返回哪几条数据？
+A.001:Li
+B.001:Lily
+C.001:Li,001:Mary,001:Lily
+D.001:Mary,001:Lily
+Answer: D
+
+Q12
+关于HBase 的Region 分裂流程Split 的描述不正确的是？
+A.Split过程中并没有真正的将文件分开，仅仅是创建了引用文件
+B.Split为了减少Region 中数据大小，从而将一个Region 分裂成两个Region
+C.Split过程中该表会暂停服务
+D.Split过程中分裂的Region会暂停服务
+Answer: C
+
+Q13
+HBase的最小处理单元是Region，User Region和Region Server之间的路由信息是保存在哪里的？
+A.Zookeeper
+B.HDFS
+C.Master
+D.meta表
+Answer: D
+
+
+Q15
+FusionInsight HD平台中，HBase暂不支持二级索引
+A.对
+B.错
+Answer: B
+
+Q16
+Fusionlnsight HD 中HBase的某张表的Rowkey 划分为SplitKey为9，E,a,z ,请问该表有几个Region?
+A.3
+B.4
+C.5
+D.6
+Answer: C
+
+Q17
+HBase元数据Meta Region路由信息保存在哪里？
+A.Root表
+B.Zookeeper
+C.HMaster
+D.Meta表
+Answer: B
+
+Q18
+HBase 中如果发生一个Region 的Split ，将一个HFile文件真正分开到两个Region 的过程发生在以下什么阶段？
+A. Split过程中
+B.Flush过程中
+C.Compaction过程中
+D.HFile分开过程中
+Answer: C
+
+Q19
+Loader仅支持关系型数据库与Hadoop HBase之间的数据导入和导出。
+A.正确
+B.错误
+Answer: B
+
+Q20
+HBase中Region的物理存储单元是什么
+A.Region
+B.ColumnFamily
+C.Column
+D.Row
+Answer: B
+
+Q22
+FusionInsight HD中使用HBase进行数据读取服务时需要连接HMaster
+A.对
+B.错
+Answer: B
+
+Q23
+HBase中一个Region进行Split操作时，将一个HFile文件真正分开到两个Region的过程发生在以下什么阶段？
+A.Split过程中
+B.Flush过程中
+C.Compaction过程中
+D.HFile分开过程中
+Answer: C
+
+Q24
+Fusionlnsight HD 系统中执行HBase写数据时候，数据被写入内存Memstore、日志HLog和HDP中，请问哪一步写入成功后才会最终返回客户端写数据成功？
+A.Memstore
+B.HLog
+C.HDFS
+D.Menmory
+Answer: B
+
+Q25
+Fusionlnsight HD 系统中HBase的最小处理单元是Region，UserRegion和RegionServer之间的路由信息是保存在哪？
+A.  Zookeeper		
+B. HDFS		
+C. Master		
+D. meta表		
+Answer: D	
+
+Q26
+HBase集群定时执行Compaction的目的是什么？
+A.减少同一Region，同一ColumnFamily下的文件数目
+B.提升数据读取性能
+C.减少同一ColumnFamily的文件数据
+D.减少同一Region的文件数目
+Answer: AB
+
+Q27
+FusionInsight HD HBase默认使用什么作为其底层文件存储系统？
+A.HDFS
+B.Hadoop
+C.Memory
+D.MapReduce
+Answer: A
+
+Q28		
+HBase的主要特点有哪些？		
+A. 高可靠性		
+B. 高性能		
+C. 面向列		
+D. 可伸缩		
+Answer: ABCD	
+
+Q29
+HBase的主Master是如何选举的？
+A.随机选取
+B.由RegionServer进行裁决
+C.通过Zookeeper进行裁决
+D.HMaster为双主模式，不需要进行裁决
+Answer: C
+
+
+Q30
+HBase的数据文件HFile中一个KeyValue格式包含哪些信息？
+A.Key
+B.Value
+C.Timestamp
+D.KeyType
+Answer: ABCD
+
+Q31
+FusionInsight HD的HBase服务包含哪些进程？
+A.HMaster
+B.Slave
+C.HRegionServer
+D.DataNode
+Answer: AC
+
+
+Q32
+Fusionlnsight HD HBase 的管理进程是如何选择主节点的？
+A.随机选取
+B.由RegionServer进行裁决
+C.通过ZooKeeper进行裁决
+D.HMaster 为双主模式，不需要进行裁决
+Answer: C
+
+Q33
+Fusionlnsight HD 中，关于HBase的BloomFilter 特性理解，说法不正确的是？
+A.可以用来过滤数据
+B.可以用来优化随机读性能
+C.会增加存储的消耗
+D.可以准确判断某条数据不存在
+Answer: A
+
+Q34
+关于HBase中HFile的描述不正确的是？
+A.一个HFile属于一个Region
+B.一个HFile 包含多个列族的数据
+C.一个HFile 包含多列数据
+D.一个HFile 包含多行数据
+Answer: B
+
+Q35
+Fusionlnsight HD中,如果需要查看当前登录HBase的用户和权限组，可以在HBase shell 中执行什么命令？
+A.use-permission
+B.whoami
+C.who
+D. get-user
+Answer:B
+
+Q36
+Hadoop 的HBase 不适合哪些数据类型的应用场景？
+A.大文件应用场景
+B.海量数据应用场景
+C.高吞吐率应用场景
+D.半结构化数据应用场景
+Answer: A
+
+》Q37
+Fusionlnsight HD 使用HBase 客户端批量写入10条数据，某个RegionServer 节点上包含该表的2个Region，分别A和B，10条数据中有两条属于A，4条属于B，请问写入这10条数据需要向该 RegionServer 发送几次RPC请求？
+A.1
+B.2
+C.3
+D.4
+Answer: A
+
+》Q38
+Hadoop的HBase主要特点有哪些？
+A.高可靠性
+B.高性能
+C.面向列
+D.可伸缩
+Answer: ABCD
+
+Hive
+Q1
+FusionInsight HD系统中Hive支持的存储格式包括？
+A.HFile
+B.TextFile
+C.SequenceFile
+D.RCFile
+Answer: BCD
+
+Q2
+FusionInsight Manager界面显示Hive服务状态为Bad时，可能原因有哪些？
+A.DBService不可用
+B.HDFS服务不可用
+C.MetaStore实例不可用
+D.HBase服务不可用
+Answer:  ABC
+
+Q3
+在FusionInsight HD中，以下哪一项不属于Hive的流控特性
+A.支持对已建立的总连接数做阈值控制
+B.支持对每个用户已经建立的连接数做阈值控制
+C.支持对某个特定用户已建立的连接数做阈值控制
+D.支持对单位时间内所建立的连接数做阈值控制
+Answer: C
+
+Q4
+关于Hive中普通表和外部表的描述不正确的是？
+A.默认创建普通表
+B.外部表实质是将已经存在HDFS上的文件路径跟表关联起来
+C.删除普通表时，元数据和数据同时被删除
+D.删除外部表时，只删除外部表数据而不删除元数据
+Answer: D
+
+Q5
+关于Hive 在 Fusionlnsight HD中的架构描述错误的是？
+A.只要有一个HiveServer不可用，整个Hive集群便不可用
+B.Hiveserver负责接受客户端请求、解析、执行HQL命令并返回查询结果
+C.MetaStore 用于提供数据服务，依赖于DBServer
+D.在同一个时间点 Hiveserve 只有一个处于Active状态，另一个则处于Standby状态
+Answer: A
+
+Q6
+关于Hive建表的基本操作，描述正确的是？
+A.创建外部表的时需要指定external关键字
+B.一旦表创建好，不可再修改表名
+C.一旦表创建好，不可再修改列名
+D.一旦表创建好，不可再增加新列
+Answer: A
+
+
+Q7
+加载数据到Hive表，哪种方式不正确？
+A.直接将本地路径的文件load到Hive表中
+B.将HDFS上的额文件load到Hive表中
+C.Hive 支持insert into 单条记录的方法，所以可以直接在命令行插入单条记录
+D.将其他表的结果集insert into 到Hive 表中
+Answer: C
+
+Q8
+哪一项不属于 Fusionlnsight HD 中 Hive 的流控特征的描述？
+A.支持对已建立的总连接数做阈值控制
+B.支持对每个用户已建立的连接数做阈值控制
+C.支持对某个特定用户已建立的连接做阈值控制
+D.支持对单位时间内所建立的连接数做阈值控制
+Answer: C
+
+Q9
+Fusionlnsight HD Manager 界面Hive日志收集，哪个选项不正确？
+A.可指定实例进行日志收集，比如指定单独收集MetaStore 的日志
+B.可指定时间段进行日志收集，比如只收集2016-1-10的日志
+C.可指定节点IP 进行日志收集，例如仅下载某个IP 的日志
+D.可指定特定用户进行日志收集，例如仅下载userA用户产生的日志
+Answer: D
+
+Q10
+关于Hive与Hadoop 其他组件的关系，以下描述错误的是？
+A.Hive最终将数据存储在HDFS中
+B.Hive SQL其本质是执行MapReduce 任务
+C.Hive是 Hadoop 平台的数据仓库工具
+D.Hive对HBase有强依赖
+Answer: D
+
+Q11
+关于Hive与传统数据仓库的对比，以下描述错误的是？
+A.由于Hive的数据存储在HDFS中，所以可以保证数据的高容错、高可靠
+B.由于Hive基于大数据平台，所以查询效率比传统数据仓库快。
+C.Hive基于HDFS存储，理论上存储量可以无限扩展，而传统数据仓库存储量会有上限。
+D.Hive元数据存储独立于数据存储之外，从而解耦合元数据和数据，灵活性高，而传统数据仓库数据应用单一，灵活性低。
+Answer: B
+
+
+Flume
+Q1
+Fusionlnsight HD 部署时，同一集群内的Flume server 节点建议至少部署几个？
+A.1
+B.2
+C.3
+D.4
+Answer: B
+
+Q2
+Flume进程级联时，以下哪些sink类型用于接收上一跳Flume发送过来的消息？
+A.Avro sink
+B.Thrift sink
+C.Hive sink
+D.Null sink
+Answer: BC
+
+Q3
+Flume的properties.properties配置文件可以配置多个channel来传输数据。
+A.对
+B.错
+Answer: A
+
+Q4
+哪个不是Flume 的channel 类型？
+A.Memory Channel
+B.File Channel
+C.JDBC Channel
+D.HDFS Channel
+Answer: D
+
+Q5
+采用Flume传输数据过程中，为了防止因 Flume 进程重启而丢失数据，推荐使用以下哪种channel类型。
+A. Memory Channel		
+B. File Channel		
+C. JDBC Channel		
+D. HDFS Channel		
+Answer: B
+
+Q6
+Flume的数据流可以根据headers的信息发送到不同的channel中。
+A.正确
+B.错误
+Answer: A
+
+Q7
+Fusionlnsight HD 系统中，可以通过多个Flume链接从其部署的节点上采集数据。
+A.正确
+B.错误
+Answer: A
+
+Q8
+Flume 支持监控并传输目录下新增的文件，可实现实时数据传输，以上描述的是哪一类source?
+A.spooling directory source
+B.http source
+C.exec source
+D.suslog source
+Answer: A
+
+Q9
+Flume传输过程中，Sink取走数据并写入目的地后，将会从event从channel中删除
+A.正确
+B.错误
+Answer: A
+
+
+Q10
+Flume的properties.propertise配置文件中可以配置多个channle来传输数据。
+A.正确
+B.错误
+Answer: A
+
+Q11
+Fusionlnsight 系统中，Flume数据流节点内不需要经过哪个component?
+A.source
+B.channel
+C.sink
+D.topic
+Answer: D
+
+HDFS
+
+Q1
+以下哪类数据不属于半结构化数据？
+A.HTML
+B.XML
+C.二维表
+D.JSON
+Answer: C
+
+Q2
+Hadoop的HDFS是一种分布式文件系统，适合以下哪种应用场景的数据存储和管理？
+A.大量小文件存储
+B.高容错、高吞吐量
+C.低延迟读取
+D.流式数据访问
+Answer: BD
+
+Q3
+华为FusionInsight HD 系统中关于HDFS的DataNode的说法正确的是？
+A.不会检查数据的有效性
+B.周期性地将本节点的Block相关信息发送给NameNode
+C.不同的DataNode存储的Block一定是不同的
+D.一个DataNode上的Block可以是相同的
+Answer: B
+
+
+Q5
+HDFS的Client写入文件时，数据的第一副本写入位置由NameNode确定，其他副本的写入位置由DataNode确定。
+A.对
+B.错
+Answer: B
+
+Q6
+下列哪条HDFS命令可用于检测数据块的完整性？
+A.hdfs fsck /
+B.hdfs fsck –delete
+C.hdfs dfsadmin –report
+D.hdfs balancer –threshold 1
+Answer: A
+
+Q7
+HDFS系统中对备用NameNode的作用的描述正确的有？
+A.主NameNode的热备
+B.备NameNode对内存没有要求
+C.帮助主NameNode合并 编辑日志，减少主NameNode的启动时间
+D.备NameNode应与主NameNode部署到一个节点
+Answer: AC
+
+Q8
+FusionInsight HD系统中HDFS默认Block Size是多少？
+A.32M
+B.64M
+C.128M
+D.256M
+Answer: C
+
+Q9
+HDFS的NameNode节点主备状态管理及元数据文件合并分别由哪两个角色负责?
+A.ZKFC和备NameNode
+B.主NameNode和备NameNode
+C.ZKFC和主NameNode
+D.主NameNode和JournalNode
+Answer: A
+
+Q10
+Hadoop系统中关于客户端向HDFS文件系统上传文件说法正确的是？
+A.客户端的文件数据经过NameNode传递给DataNode
+B.客户端将文件划分为多个Block,根据 DataNode 的地址信息，按顺序写入每一个 DataNode 中
+C.客户端根据 DataNode 的地址信息，按顺序将整个文件写入每一个 DataNode中，然后由 DataNode 将文件划分为多个 Block
+D.客户端只上传数据到一个 DataNode ，然后由 NameNode 负责 Block复制
+Answer: B
+
+Q11
+HDFS支持大文件存储，同时支持多个用户对同一文件的写操作，以及在文件任意位置进行修改。
+A.正确
+B.错误
+Answer: B
+
+Q12
+Fusionlnsight HD系统中 HDFS的Block默认保存几份？
+A.3份
+B.2份
+C.1份
+D.不确定
+Answer: A
+
+Q13
+Hadoop的NameNode用于存储文件系统的元数据。
+A.正确
+B.错误
+Answer: A
+
+Q14
+HDFS 的Client写入文件时，数据的第一副本写入位置是由NameNode 确定，其他副本的写入位置由DataNode确定
+A.正确
+B.错误
+Answer: B
+
+Q15
+Hadoop中哪个模块负责HDFS 的数据存储？
+A.NameNode
+B.DataNode
+C.ZooKeeper
+D.JobTraoker
+Answer: B
+
+Q16
+HDFS机制中，NameNode 负责管理元数据，Client端每次请求都需要从 NameNode 的元数据盘中读取元数据信息以此获取所读文件在 DataNode的位置
+A.正确
+B.错误
+Answer: B
+
+Q17
+以下关于Hadoop 分布式文件系统HDFS联邦描述正确的有？
+A.一个Namespace 使用一个block pool 管理数据块
+B.一个Namespace 可使用多个block pool 管理数据库
+C.每个block pool的磁盘空间是物理共享的，逻辑空间是隔离的
+D.支持NameNode/NameSpace水平扩展
+Answer: ACD
+
+
+Q19
+以下关于Hadoop的HDFS描述正确的有？（多选）
+A.HDFS由NameNode，DataNode，Client组成
+B.HDFS备 NameNode上的额元数据是由主 NameNode 同步过去的
+C.HDFS 采用就近的机架节点进行数据的第一副本存储
+D.HDFS适合一次写入，多次读取的读写任务
+Answer: ACD
+
+
+Spark
+Q1
+Spark On Yarn模式下的driver只能运行在客户端。
+A.对
+B.错
+Answer: B
+
+Q2
+Spark和Hadoop都不适用于迭代计算的场景。
+A.对
+B.错
+Answer: B
+
+Q3
+SparkStreaming相比Storm具备更高的实时性。
+A.对
+B.错
+Answer: B
+
+Q4
+Spark SQL表中，经常会存在很多小文件（大小远小于HDFS块大小），在这种情况下，Spark会启动更多的Task来处理这些小文件，当SQL逻辑中存在Shuffle操作时，会大大增加hash分桶数，从而严重影响性能。
+A.对
+B.错
+Answer: B
+
+Q5
+Spark应用运行时，如果某个Task运行失败则导致整个app运行失败。
+A.对
+B.错
+Answer: B
+
+Q6
+Spark On YARN模式下，没有部署NodeManager的节点不能启动executor执行Task
+A.对
+B.错
+Answer: A
+
+Q7
+Spark是以下哪种编程语言实现的？
+A.C
+B.C++
+C.JAVA
+D.Scala
+Answer: D
+
+Q8
+Spark是基于内存的计算引擎，所有Spark程序运行过程中，的数据只能存储在内存中
+A.对
+B.错
+Answer: B
+
+Q9
+Spark应用在运行时，Stage划分的依据是什么？
+A.task
+B.taskSet
+C.action
+D.shuffle
+Answer: D
+
+Q10		
+Spark任务的一个Executor同时可以运行多个task		
+A. 对		
+B. 错		
+Answer: A
+
+Q11
+Spark 应用运行时，如果某个task运行失败则导致整个app运行失败
+A.正确
+B.错误
+Answer: B
+
+Q12
+下列哪些是Spark可以提供的功能？
+A.分布式内存计算引擎
+B.分布式文件系统
+C.集群资源的统一调度
+D.流处理功能
+Answer: AD
+
+Q13
+Spark 组建中哪个选项不属于transformation操作？
+A.join
+B.distinct
+C.reduceBykey
+D.reduce
+Answer:D
+
+Q14
+以下哪些是Spark服务的常驻进程？（多选）
+A.JobHistory
+B.JDBCServer
+C.SparkResource
+D.Nodemanager
+Answer: AB
+
+Q15
+华为 Fusionlnsight HD 集群中，Spark服务可以从以下哪些服务读取数据？（多选）
+A.YARN
+B.HDFS
+C.Hive
+D.HBase
+Answer: BCD
+
+Q16
+Spark 任务的每个stage可以划分为job,划分的标记是shuffle。
+A.正确
+B.错误
+Answer: B
+
+
+Q1
+Loader提供了哪些方式或接口实现作业管理？
+A. WEB UI
+B.Linux命令行
+C.REST接口
+D.Java API
+Answer: ABCD
+
+Q2
+Loader的作业执行失败，则此作业运行过程中导入的数据不会被自动删除，必须手动删除。
+A.对
+B.错
+Answer: B
+
+Q3
+FusionInsight HD系统中，集群中一个Loader节点异常，其他服务没有异常的情况下，不会影响Loader服务功能的正常使用
+A.对
+B.错
+Answer: A
+
+Q4
+Fusionlnsight HD 的Loader中，一个连接器（connector）只可以分配一个作业使用。
+A.正确
+B.错误
+Answer: B
+
+Q5
+Fusionlnsighe HD Loader 进行数据导入和导出，必须经过 Reduce 阶段进行数据处理。
+A.正确
+B.错误
+Answer: B
+
+Q6
+FusionInsight HD中Loader作业提交到YARN后，作业不能手动停止。
+A.对
+B.错
+Answer: B
+
+Q7
+在FusionInsight HD系统，Loader作业运行过程中，如果产生脏数据，Loader作业执行结果的状态一定是失败。
+A.对
+B.错
+Answer: B
+
+Q8
+Fusionlnsight HD 系统中，集群中其中一个 Loader节点异常，其它服务没有异常的情况下，不会影响 Loader 服务功能的正常使用。
+A.正常
+B.错误
+Answer: A
+
+Q9
+Fusionlnsight HD Loader 作业运行前后，需要哪些节点与外部数据源通讯？
+A.loader 服务主节点
+B.运行Yarn 服务作业的节点
+C.前面两个都需要
+D.前面两个都不需要
+Answer: C
+
+Q10
+Fusionlnsight HD系统中 ，下列哪个方法不能查看到Loader 作业执行的结果？
+A.通过Yarn 任务管理查看
+B.通过Loader UI 界面查看
+C.通过Manager 的告警查看
+D.通过NodeManager 查看
+Answer: D
+
+Q11
+Fusionlnsight HD中Loader 实例必须与哪个实例部署在一起？
+A.DataNode
+B.RegionServer
+C.ResourceManager
+D.Nodemanager
+Answer: D
+
+Q12
+Fusionlnsight HD 的Loader 在创建作业时，连接器（Connetor）有什么作用？
+A.确定有哪些转换步骤
+B.提供优化参数，提高数据导入导出性能
+C.配置作业如何与外部数据源进行连接
+D.配置作业如何与内部数据源进行连接
+Answer: C
+
+Q13
+关于 Fusionlnsight HD 中Loader作业描述正确的是？
+A.Loader 将作业提交到Yarn执行后，如果此时 Loader 服务异常，则此作业执行失败。
+B.Loader 将作业提交到Yarn执行后，如果某个Mapper任务执行失败，能够自动进行重试
+C.Loader 将作业执行失败后将会产生垃圾数据，需要用户手动清除
+D.Loader 将一个作业提交至Yarn 执行后，该作业执行完成前，不能再提交其他作业
+Answer: B
+
+Q14
+Fusionlnsight HD Loader 可以将HDFS 数据导出到以下哪些目标端？
+A.SFTP 服务器
+B.FTP服务器
+C.Oracle 数据库
+D.DB2数据库
+Answer: ABCD
+
+Q15
+Fusionlnsight HD 中Loader 从SFTP 服务器导入文件，如果不需要做编码转换和数据转换且速度最快，选择下面哪个文件类型？
+A.text-flie
+B.sequence-file
+C.binary-file
+D.graph-file
+Answer: C
+
+Q16
+Fusionlnsight HD 的 Manager 界面对Loader的操作不包括以下哪个？
+A.启动 Loader 实例
+B.查看 Loader 服务状态
+C.配置 Loader 参数
+D.查看 Loader 运行日志
+Answer: D
+
+Q17
+Loader 的作业执行失败，则此作业运行过程中导入的数据不会被删除，必须手动删除。
+A.正确
+B.错误
+Answer: B
+
+Kafka
+Q1
+Kafka是一个分布式的消息发布订阅系统，它只是进行消息的转发，不会保存消息。
+A.对
+B.错
+Answer: B
+
+Q2
+FusionInsight Manager界面上，当收到Kafka磁盘容量不足告警，且该告警的原因已经排除硬盘硬件故障时，系统管理员需要考虑扩容解决此问题
+A.对
+B.错
+Answer: A
+
+UESTION 3
+FusionInsight HD产品中，关于Kafka的说法不正确的是？
+A.Kafka强依赖于Zookeeper
+B.Kafka部署的实例个数不得小于2
+C.Kafka的服务端可以产生消息
+D.Consumer作为Kafka的客户端角色进行消息的消费
+Answer: C
+
+Q4
+查看Kafka的某Topic的partition详细信息时，使用如下哪个命令？
+A.bin/kafka-topic.sh –create
+B.bin/kafka-topic.sh --list
+C.bin/kafka-topic.sh --describe
+D.bin/kafka-topic.sh --delete
+Answer: C
+
+Q5
+关于Kafka盘容量不足的告警，对于可能的原因以下分析不正确的是？
+A.用于存储 Kafka 数据的磁盘配置（如磁盘数目，磁盘大小等），都无法满足当前业务数据流量，导致磁盘使用率达到上限
+B.数据保存时间配置过长，数据累积达到磁盘使用率上限
+C.业务规划不合理，导致数据分配不均，使部分磁盘达到使用率上限
+D.Broker节点故障导致
+Answer: D
+
+Q6
+Kafka集群中，Kafka服务端的角色是？
+A.Producer
+B.Consumer
+C.Zookeeper
+D.Broker
+Answer: D
+
+Q7
+Fusionlnsight HD 产品中，关于Kafka组件说法正确的有？
+A.删除Topic时，必须确保Kafka 的服务配置delete.topic.enable配置为true
+B.Kafka安装及运行日志保存路径为/srv/Bigdata/Kafka
+C.Zookeeper服务不可用会导致Kafka服务不可用
+D.必须使用admin用户或者 Kafkamin组用户进行创建Topic
+Answer: ACD	
+
+Q8
+Fusionlnsight HD 产品中，关于 Kafka组件部署规划说法正确的是？
+A.Kafka的Producer 发送消息时可以指定该消息被哪个Consumer消费
+B.在创建Topic 时，副本数不得大于当前存活的Broker实例个数，否则创建 Topic 时会失败
+C.Kafka安装完成后就不能再配置数据存放目录了
+D.Kafka会将元数据信息存放到 Zookeeper上
+Answer:BD
+
+大数据基础
+Q1
+大数据分析相关技术主要特征有哪些？
+A.机器学习，全量特征
+B.数据背后事件关联性分析
+C.以海量数据为基础
+D.以精确样本为基础
+Answer: ABC
+
+Q2
+关于大数据的主要特征的理解和描述正确的有哪些？多选
+A.数据来源多，格式多
+B.数据增长速度快，处理速度快
+C.数据量大，计算量大
+D.数据价值密度低，价值高
+Answer: ABCD
+
+Q3
+大数据商业咨询服务方案在规划环节主要考虑以下哪些设计？
+A.大数据商业模式设计
+B.商业场景全景规划
+C.典型场景需求设计
+D.场景分解和业务设计
+Answer: ABCD
+
+Q4
+大数据需要传统行业思维的转变，要把数据收集，分析中作为业务流程的重要组成部分，数据驱动业务流程优化，实现智能化和自动化，并依托数据资产实现跨界拓展。
+A.正确
+B.错误
+Answer: A
+
+Q5
+从生命周期来看，数据主要经历哪几个阶段？
+A.数据采集
+B.数据存储
+C.数据管理
+D.数据分析
+E.数据呈现
+Answer: ABCD
+
+
+Flink
+Q1
+Flink与Spark Streaming类似，属于时间驱动型实时流系统
+A.对
+B.错
+Answer: B
+
+Q2
+Flink支持Local模式和Cluster模式部署，其他模式部署暂不支持。
+A.对
+B.错
+Answer: B
+
+Q3
+Flink中的checkpoint机制不断绘制流应用的快照，流应用的状态快照只能保存在HDFS文件系统中。
+A.对
+B.错
+Answer: B
+
+Q4
+Flink是一个批处理和流处理结合的统一计算框架，其核心是一个数据分发以及并行化计算的流数据处理引擎。
+A.对
+B.错
+Answer: A
+
+Q5
+Flink中的（    ）接口用于流数据处理，（   ）接口用于批处理
+A.Stream API，Batch API
+B.DataStream API，DataBatch API
+C.DataBatch API，DataStream API
+D.Batch API，Stream API
+Answer: B
+
+Q6
+下面哪些场景不是Flink组件擅长的？多选
+A.迭代计算
+B.批处理
+C.数据存储
+D.流处理
+Answer: AC
+ 
+
+Q7
+Flink适用于高并发处理数据、毫秒级时延的应用？
+A.错
+B.对
+Answer: B
+
+YARN
+Q1
+YARN服务中，如果要给队列QuqueA设置容量为30%，应该配置哪个参数？
+A.yarn.scheduler.capacity.root.QueueA.user-limit-factor
+B.yarn.scheduler.capacity.root.QueueA.minimum-user-limit-percent
+C.yarn.scheduler.capacity.root.QueueA.capacity
+D.yarn.scheduler.capacity.root.QueueA.state
+Answer: C
+
+Q2
+YARN调度器分配资源的顺序，下面哪一个描述是正确的？
+A.任意机器 -> 同机架 -> 本地资源
+B.任意机器 -> 本地资源 -> 同机架
+C.本地资源 -> 同机架 -> 任意机器
+D.同机架 -> 任意机器 -> 本地资源
+Answer: C
+
+Q3
+如果YARN集群中只有Default、QueueA和QueueB子队列，那么允许将他们的容量分别设置为60%、25%、22%。
+A.对
+B.错
+Answer: B
+
+Q4
+Hadoop系统中YARN分配给Container的内存大小，可以通过参数yarn.app.mapreduce.am.resource.mb来设置
+A.对
+B.错
+Answer: A
+
+Q5
+YARN通过ResourceManager对集群资源进行管理，它的主要功能有？
+A.集群资源调度
+B.应用程序管理
+C.日志管理
+D.以上说法都不对
+Answer: AC
+
+Q6
+Hadoop平台中启用YARN组件的日志聚集功能，需要配置哪个参数？
+A. yarn.nodemanager.local-dir		
+B. yarn.nodemanager.log-dirs		
+C. yarn.acl.enable
+D. yarn.log-aggregation-enable		
+Answer: D	
+
+Q7
+YARN中设置队列QueueA最大使用资源量，需要配置哪个参数？
+A.yarn,scheduler.capacity.root,QueueA.user-limit-factor
+B.yarn,scheduler.capacity.root,QueueA.minimum-user-limit-fpercent
+C.yarn,scheduler.capacity.root,QueueA.state
+D.yarn,scheduler.capacity.root,QueueA.maximum-capacity
+Answer: D
+
+Q8
+YARN上有两个同级队列Q1与Q2，容量都是50，Q1上已经有10个任务共占用了40的容量，Q2上有2个任务共占用了30 的容量，那么由于Q1的任务数多，调度器会有限将资源分配给Q1。
+A.正确
+B.错误
+Answer: B
+
+Q9
+Hadoop 平台中，要查看YARN 服务中的一个application 信息，通常需要使用什么命令？
+A.container
+B.applicationatternpt
+C.iar
+D.application
+Answer: D
+
+Q10
+Hadoop系统中，YARN支持哪些资源类型的管理？（多选）
+A.内存
+B.CPU
+C.网络
+D.磁盘空间
+Answer: AB
+
+Q11
+YARN容量调度器的主要特点有哪些？多选
+A.容量保证
+B.灵活比
+C.多重租赁
+D.动态更新配置文件
+Answer: ABCD
+
+MapReduce
+Q1
+Hadoop中MapReduce组件擅长处理哪种场景的计算任务？
+A.迭代计算
+B.离线计算
+C.实时交互计算
+D.流式计算
+Answer: B
+
+Q2
+Hadoop系统中，如果HDFS文件系统的备份因子是3，那么MapReduce每次运行Task都要从3个有副本的机器上传输需要处理的文件段。
+A.对
+B.错
+Answer: B
+
+Q3
+以下哪个不属于Hadoop中MapReduce组件的特点？
+A.易于编程
+B.良好的拓展性
+C.实时计算
+D.高容错性
+Answer: C
+
+
+
+FusionInsight Manager
+Q1
+FusionInsight Manager对服务的配置功能说法不正确的是？
+A.服务级别的配置可对所有实例生效
+B.实例级别的配置只针对本实例生效
+C.实例级别的配置对其他实例也生效
+D.配置保存好需要重启服务才能生效
+Answer: C
+
+Q2
+FusionInsight Manager会定时备份哪些数据？
+A.NameNode
+B.LDAP
+C.OMS
+D.DBService
+Answer: ABCD
+
+Q3
+哪个模块是负责FusionInsight Manager用户数据存储的？
+A.CAS
+B.AOS
+C.Kerberos
+D.LDAP
+Answer: D
+
+Q4
+FusionInsight Manager用户权限管理不支持哪个配置？
+A.给用户配置角色
+B.给角色配置权限
+C.给用户组配置角色
+D.给用户组配置权限
+Answer: D
+
+Q5
+FusionInsight Manager与外部平台对接时，支持哪些接口？
+A.SNMP
+B.VPN
+C.BGP
+D.Syslog
+Answer: AD
+
+Q6
+Fusionlnsight Manager 不能够管理哪个对象？
+A.Spark
+B.主机OS
+C.YARN
+D.HDFS
+Answer: B
+
+Q7
+关于Fusionlnsight Manager 中的Controller 和NodeAgent,说法正确的是？
+A.Controller 每隔3秒向NodeAgent发送心跳
+B.NodeAgent接受Controller 下发的命令，执行具体的动作
+C.每个节点都必须部署Controller
+D.NodeAgent 是开源增强的
+Answer: B
+
+Q8
+使用配置规划工具对 Fusionlnsight HD V100R002C50 集群进行规划时，可以用 V100R002C60 版本的配置规划工具来规划。
+A.正确
+B.错误
+Answer: B
+
+Q9
+Fusionlnsight Manager 可以对哪些项目进行健康检查？（多选）
+A.主机
+B.服务
+C.角色
+D.实例
+Answer: AB
+
+Q10
+Fusionlnsight Manager 对外支持REST接口、SNMP接口、SYSLOG接口。
+A.正确
+B.错误
+Answer: A
+
+Q11
+Fusionlnsight Manager 对服务的管理操作，下面说法错误的是？
+A.可对服务进行重启操作
+B.可以添加和卸载服务
+C.可设置不常用的服务隐藏或显示
+D.可查看服务的当前状态
+Answer: C
+
+Q12
+关于Fusionlnsight Manager 关键特性或操作说法正确的是？
+A.能够针对整个集群或者某个服务进行健康检查，不能针对某个节点进行健康检查
+B.Manager引入角色的概念，采用RBAC的方式对系统进行权限管理
+C.整个系统使用kerberos管理用户，使用LDAP进行用户认证，通过CAS实现单点登录
+D.对于健康检查结果，不能够导出检查报告，只能够在线查看
+Answer: B
+
+Q13
+Fusionlnsight Manager 支持大规模集群安装部署、监控、告警、用户管理、权限管理、审计、服务管理、健康检查、问题定位、升级和补丁。
+A.正确
+B.错误
+Answer: A
+
+Q14
+关于 Fusionlnsight Manager 说法错误的是？
+A.NTP Server/Client负责集群内各节点的时钟同步
+B.通过 Fusionlnsight Manager 可以对HDFS进行启停控制，配置参数
+C.Fusionlnsight Manager 所有维护操作只能通过Web UI 来完成，没有提供Shell维护命令
+D.通过 Fusionlnsight Manager 可以先导式安装集群，缩短集群部署时间
+Answer: C
+
+Q15
+通过Fusionlnsight Manager 不能完成以下哪个操作？
+A.安装部署
+B.性能监控
+C.权限管理
+D.虚拟机分配
+Answer: D
+
+Q16
+关于Fusionlnsight Manager 功能说法错误的有哪些？
+A.通过 Fusionlnsight Manager 的Audit审计界面可以查询每个重要操作
+B.通过 Fusionlnsight Manager 不能下载单个组件的客户端
+C.集群部署完成以后，通过 Fusionlnsight Manager 不能进行集群扩容，只能通过卸载集群重新搭建来扩容集群
+D.通过 Fusionlnsight Manager 的Alarms告警界面可以查询每个告警的具体信息
+Answer: BC
+
+
+FusionInsight
+
+Q1
+Fusionlnsight HD 集群中包含了多种服务，每种服务又由若干角色组成，下面哪些是服务的角色？
+A. HDFS		
+B. NameNode		
+C. DataNode		
+D. HBase		
+Answer: BC
+
+
+Q2
+Fusionlnsight HD 在安装集群成功后，有哪些项需要检查？
+A.Service组件健康检查
+B.系统是否有告警
+C.服务的配置状态是否为已同步
+D.主机健康装填
+Answer: ABCD
+		
+Q3
+Fusionlnsight HD 集群规划建设时，集群有150个节点，并且采用双平面组网部署，对于该集群网络要求的描述，下列描述正确的是？
+A.业务平面所有节点都使用10GE 网络
+B.管理平面中控制节点使用10GE 网络
+C.管理平面数据节点使用1GE 网络
+D.业务平面中控制节点使用1GE 网络
+E.管理平面中管理节点使用10GE 网络
+Answer: ACE
+
+Q4
+Fusionlnsight HD 系统中 一个集群可以管理多个服务，每个服务可以管理多个角色，每个角色只能管理一个实例？
+A.正确
+B.错误
+Answer: B
+
+Q5	
+FusionInsight家族包含下列哪些子产品？	
+A. HD	
+B. Libra	
+C. Manager	
+D. Miner	
+E. Farmer	
+F. DWS	
+Answer: ABCDE
+
+Q6
+FusionInsight HD系统审计日志不可用记录下面哪些操作？
+A.手动清除警告
+B.启停服务实例
+C.删除服务实例
+D.查询历史监控
+Answer: D
+
+Q7
+Fusionlnsight HD 安装前准备，包括哪些步骤？（多选）
+A.完成硬件安装
+B.完成节点主机操作系统安装
+C.准备工具和软件。例如Putty ,LLD, Fusionlnsight HD软件包等
+D.准备规划数据，例如网络参数和角色部署位置
+Answer: ABCD
+
+Q8
+Fusionlnsight 集群组网设计中，二层组网指集群内二层交换，集群节点在一个子网里，适用节点数小于200的集群场景。
+A.正确
+B.错误
+Answer: A
+
+Q9	
+Fusionlnsight HD 管理节点提供双机HA机制，主节点故障之后，主备节点需要手动实现Failover。
+A.正确
+B.错误
+Answer: B
+
+Q10
+Fusionlnsight HD 系统中，LDAP数据同步方式是哪个？
+A.单向同步
+B.双向同步
+C.隔离不同步
+D.数据交叉同步
+Answer: A
+
+Q11
+某银行规划的 Fusionlnsight HD 集群有90个节点，如果控制节点规划了3个，那集群数据节点推荐规划
+A.87
+B.85
+C.90
+D.86
+Answer: A
+
+Q12
+下列哪些OS 版本被推荐可以用来搭建 Fusionlnsight V1R2C60集群？（多选）
+A.SUSE 11 SP1/SP2/SP3 for AMD64 & inter64
+B.CentOS 6.6
+C.Redhat-6.4-x86_64
+D.Redhat-6.5-x86_64
+E.Redhat-6.7-x86_64
+F.Ubuntu6.3
+Answer:ABCDE
+
+Q13
+这些分区所对应磁盘最佳Raid级别的规划组合是？
+A.Raid0 Raid 1 Raid0 Non-Raid1
+B.Raid1 Raid 1 Non-Raid Non-Raid Raid1
+C.Raid0 Raid0 Raid0 Raid0 Raid0
+D.Non-Raid Non-Raid Non-Raid Non-Raid Raid 1
+Answer: B
+
+Q14
+Fusionlnsight HD 部署过程中，执行 precheck 检查每一个节点时必须调用checkNode.Configd 配置文件
+A.正确
+B.错误
+Answer: A
+
+Q15
+Fusionlnsight HD V100R002C60 版本集群中，以下哪些组件需要规划元数据分区？（多选）
+A.HDFS
+B.Zookeeper
+C.Streaming
+D.Redis
+E.HBase
+F.Kafka
+Answer: ABC
+
+Q16
+Fusionlnsight HD LLD 配置规划工具可以生成哪些配置文件？
+A.监控告警阈值配置文件
+B.集群的安装模板文件
+C.HDFS和YARN的配置文件
+D.执行Precheck 所需要的配置文件CheckNodes.Config
+Answer: BD
+
+Q17
+Fusionlnsight Manager 集群规划中，管理节点&控制节点&数据节点合一部署方案适合什么样的场景？
+A.30节点以下
+B.100节点以上
+C.100-200节点
+D.200节点以上
+Answer: A
+
+Q18
+Fusionlnsight HD 集群中，集群规模现有300个节点，如果采用推荐部署方案，控制节点上一定不会存在哪些分区？
+A./
+B./srv/BigData/dbdata-om
+C./srv/BigData
+D./srv/BigData/umatnode
+E./srv/BigData/hadoop/data5
+Answer: BE
+
+Q19
+Fusionlnsight HD 集群三层组网时，管理节点，控制节点，数据节点建议安装在不同的网段内，可以提高可靠性。
+A.正确
+B.错误
+Answer: B
+
+Q20
+某用户需要搭建一个350节点的 Fusionlnsight HD 集群，哪种规划方案最佳？
+A.管理节点，控制节点，数据节点合一部署，二层组网
+B.管理节点，控制节点合一部署，数据节点独立部署，二层组网
+C.管理节点，控制节点，数据节点都独立部署，三层组网
+D.管理节点，数据节点合一部署，控制节点独立部署，二层组网
+Answer: C
+
+Q21
+在规划Fusionlnsight HD 集群时候，如果客户用于功能测试，对性能没有要求，节约成本的情况下，可以采用管理节点，控制节点，数据节点合一部署，最少需要多少节点？
+A.2
+B.3
+C.4
+D.5
+Answer: B
+
+Q22
+Fusionlnsight HD 支持哪些日志下载方式？
+A.下载已安装组件的所有组件的日志
+B.下载单个组件某个模块的日志
+C.下载指定主机的日志
+D.下载指定时间段的日志
+Answer: ABCD
+
+Q23
+Fusionlnsight HD 产品在部署 Kerberos和LDAP服务是，以下描述正确的是？（多选）
+A. 部署 Kerberos服务之前，必须先部署LDAP服务
+B.LDAP服务必须和 Kerberos服务部署在同一个节点
+C.Kerberos服务和 LDAP服务部署同一个节点利于数据访问，有助于性能提升
+D.LDAP服务可以多个集群共享
+Answer: AC
+
+Q24
+Fusionlnsight HD 集群升级，以下描述正确的有？（多选）
+A.升级过程中不可以手工操作主备OMS 倒换
+B.集群内所有主机的root账户密码保持一致
+C.保持网络畅通，避免因网络问题导致升级异常
+D.观察期不能做扩容
+Answer: ABCD
+
+Q25
+Fusionlnsight HD 系统中，集群节点规划时需要考虑到哪些磁盘规划？
+A.主机OS磁盘规划
+B.控制节点元数据盘规划
+C.管理节点元数据盘规划
+D.数据节点数据磁盘规划
+Answer: ABCD
+
+Q26
+安全模式下安装 Fusionlnsight HD 集群时，哪些组件是必须安装的？
+A.Zookeeper
+B.LDAPServer
+C.KrbServer
+D.HDFS
+Answer: BC
+
+Q27
+在 Fusionlnsight 集群规划时，以下哪些集群命名是系统允许的？
+A.Fusionlnsight -123
+B.Fusionlnsight _123
+C.Fusionlnsight 123
+D.123 Fusionlnsight
+Answer: BCD
+
+Q28
+如果Fusionlnsight HD集群节点数不足以使数据节点单独部署的情况下，可以采用管理节点&控制节点&数据节点合一的部署方案，但性能会受限制。
+A.正确
+B.错误
+Answer: A
+
+Q29
+Fusionlnsight HD 系统部署时，如果Solr索引默认存放在HDFS上时，以下理解正确的有？
+A. 不需要考虑各SolrServer实例上创建了多少Shared
+B.为保证数据可靠性，创建索引时必须创建Replica
+C.通过HDFS读取索引时占用磁盘IO，因此不建议Solr实例与DataNode部署在同一节点上
+D.当Solr服务参考INDEX_ON_HDFS值为HDFS时，创建Collection的索引默认存储在HDFS上。
+Answer: D
+
+Q30
+Fusionlnsight HD安装过程中，执行preinstall不能完成哪项功能？
+A.修改OS配置，确保OS满足 Fusionlnsight HD 的安装要求
+B.安装manager
+C.格式化分区
+D.安装OS缺失的RPM
+Answer: B
+
+Q31
+Fusionlnsight HD 三层组网适合多少节点的集群规模？
+A.30节点
+B.100节点
+C.100-200节点
+D.200节点以上
+Answer: D
+
+Q32
+Fusionlnsight HD 集群中，根据磁盘规划建议，/srv/BigData分区应该部署在什么磁盘上？
+A.OS盘
+B.元数据盘
+C.数据盘
+D.管理盘
+Answer: A
+
+Q33
+Fusionlnsight HD系统中，Kerberos 仅用于组件间服务安全认证。
+A.正确
+B.错误
+Answer: B
+
+Q34
+华为 Fusionlnsight HD系统中，对存储副本为3个的数据块，当有一个节点上该数据块丢失时，需要手动复制一个副本到该节点。
+A.正确
+B.错误
+Answer: B
+
+Q35
+Fusionlnsight HD 部署过程中，以下关于安装集群说法正确的是？
+A.支持模板安装和手动安装
+B.首次登陆不用修改admin 账户密码
+C.对于组网隔离场景，在发现节点步骤的IP输入框中，应该输入各个节点的业务IP
+D.选择服务时，系统会自动为其选择依赖的底层服务
+Answer: AD
+
+Q36
+客户IT 系统中 Fusionlnsight HD 集群有150个节点，每个节点12块磁盘（不包括OS盘），每块磁盘大小IT,只安装HDFS，按照默认配置最大可存储多少数据？
+A.1764TB
+B.1800TB
+C.600TB
+D.588TB
+Answer: D
+
+Q37
+Fusionlnsight HD 节点不支持哪种主机操作系统？
+A. Suse 11.1		
+B. Redhat 6.5		
+C. Centos 6.4		
+D. Ubuntu 11.04		
+Answer: D
+		
+Q38
+以下选项中，对华为 Fusionlnsight HD 系统中备用NameNode的作用描述准确的有？（多选）
+A.主NameNode 的热备
+B.备 NameNode 对内存没有要求
+C.帮助主 NameNode 合并编辑日志，减少主 NameNode 启动时间
+D.备 NameNode 应与主 NameNode 部署到一个节点
+Answer: AC
+
+Q39
+Fusionlnsight 集群规划部署时，建议管理节点最好部署（）个，控制节点最少需要部署（）个，数据节点最少需要部署（）个。
+A.1,2,2
+B.1,3,2
+C.2,3,1
+D.2,3,3
+Answer: D	
+
+Q40
+某高校的Fusionlnsight HD 集群中有230个节点，在进行集群规划时，下列哪些进程应该部署在数据节点上？（多选）
+A.DataNode
+B.NameNode
+C.NodeManager
+D.RegionServer
+E.DBServer
+F.SolrServer
+Answer: ACDF
+
+Q41
+Fusionlnsight HD 系统中，哪个不属于集群节点的磁盘分区
+A.OS分区
+B.数据分区
+C.元数据分区
+D.管理分区
+Answer: D
+
+Q42
+Fusionlnsight HD系统中，关于Solt 索引的存储部署策略，以下说正确的有？（多选）
+A.利用HDFS数据存储可靠性和易于扩容的特点优先选择索引存储于HDFS
+B.不论 Solt 索引存储在HDFS上还是存储在本地磁盘，在同一节点上部署5个Solt 实例，根据IP和不同的端口号来区分不同的 Solt 实例
+C.当对实时索引录入速度要求较高时，可选择索引存放于本地磁盘
+D.当索引数据存放在HDFS上时，SolrServer实例与DataNode实例部署在同一节点上。
+Answer: ACD
+
+Q43
+Fusionlnsight HD 集群组网设计中，有一种机架可以按照业务需求线性扩展，这种机架被称为（   ）
+A.基本框
+B.扩展框
+C.管理框
+D.数据框
+Answer: B
+
+
+Q44
+Fusionlnsight HD 集群安装成功后，不允许修改服务，角色和实例的配置
+A.正确
+B.错误
+Answer: B
+
+Q45
+Fusionlnsight HD 用户管理系统仅支持管理人机账号。
+A.正确
+B.错误
+Answer: B		
+
+Q46
+Fusionlnsight HD系统中，如果发现Solr 服务不可用，可以从哪些方面分析定位问题？（多选）
+A.查看其依赖的Zookeeper服务是否正常
+B.查看HDFS服务是否正常
+C.登陆 SolrserverAdmin 所在节点，确认该节点与另外一个 SolrserverAdmin 实例节点网络是否连通
+D.登陆Fusionlnsight Manager 界面，下载Solr 服务不可用期间的相关日志，进行进一步定位
+Answer: ABCD
+
+Q47
+Fusionlnsight HD 安装不支持非root用户的安装方式。
+A.正确
+B.错误
+Answer: B
+
+Q48
+Fusionlnsight HD 集群中的节点只安装了一块网卡，也可以采用双平面隔离组网方案。
+A.正确
+B.错误
+Answer: B
+
+Q49
+Fusionlnsight HD 扩容时，添加到集群中的新节点，主机OS 的root 用户密码与集群原所有节点root 用户密码可以不用保持一致。
+A.正确
+B.错误
+Answer: B
+
+
+FusionInsight HD Streaming
+Q1
+关于FusionInsight HD Streaming的Supervisor描述正确的是？
+A.Supervisor负责资源的分配和任务的调度
+B.Supervisor负责接受Nimbus分配的任务，启动停止属于自己管理的Worker进程
+C.Supervisor是运行具体处理逻辑的进程
+D.Supervisor是在Topology中接收数据然后执行处理的组件
+Answer: B
+
+Q2
+FusionInsight HD的Streaming是基于开源Apache Storm开发的，Storm是一个分布式的离线计算框架。
+A.对
+B.错
+Answer: B
+
+Q3
+FusionInsight HD系统中使用Streaming客户端Shell命令查看拓扑或提交拓扑失败，以下哪些定位手段是正确的？
+A.查看客户端异常堆栈，判断是否客户端使用问题
+B.查看主Nimbus的运行日志，判断是否Nimbus服务端异常
+C.查看Supervisor运行日志，判断是否Supervisor异常
+D.查看Worker运行日志
+Answer: AB
+
+Q4
+关于Fusionlnsight HD 安装流程正确的是？
+A.安装Manager->执行preinstall->LLD工具进行配置->安装集群->安装后检查->安装后配置
+B.LLD工具进行配置->执行preinstall->安装Manager->安装集群->安装后检查->安装后配置
+C.安装Manager->LLD工具进行配置->执行preinstall置->安装集群->安装后检查->安装后配置
+D.LLD工具进行配置->执行preinstall->>安装集群->安装Manager-> 安装后检查->安装后配置
+Answer: B
+
+Q5
+安装 Fusionlnsight HD的Streaming组件时，Nimbus角色要求安装几个节点？
+A.1
+B.2
+C.3
+D.4
+Answer: B
+
+Q6
+Fusionlnsight HD的Streaming 对于 Zookeeper弱依赖，即使 Zookeeper 故障 Streaming 也可以正常提供
+A.正确
+B.错误
+Answer: B
+
+Q7
+Fusionlnsight HD系统中 使用Streaming 客户端Shell命令提交了拓扑之后，使用Storm UI 查看发现该拓扑长时间没有处理数据，可能原因有？
+A.拓扑结构过于复杂或者并发太大，导致worker启动时间过长，超过supervisor的等待时间
+B.supervisor 的slots资源被耗尽，拓扑提交上去后分不到slot去启动worker进程
+C.拓扑业务存在扩及错误，提交之后无法正常运行
+D.当数据量较大时，拓扑处理速度较慢
+Answer: ABC
+
+
+Solr
+Q1
+Solr创建Collection时，推荐选用路由算法为compositld Router，那么该Collection 可以扩展shard.
+A.正确
+B.错误
+Answer: B
+
+Q2
+Fusionlnsight HD 部署Solr 时，如果选择索引放在本地磁盘，建议给每个SolrServer 实例
+A.对
+B.错
+Answer: A
+
+Q3
+SolrCloud 模式是集群模式，在此模式下Solr服务器强依赖于以下哪个服务？
+A.HBase
+B.HDFS
+C.Zookeeper
+D.Yarn
+Answer: C
+
+Q4
+在Solrcoud 模式下，以下关于Solr相关概念描述正确的有？（多选）
+A.Collection是在 Solrcoud集群中逻辑意义上的完整的索引，可以被划分为一个或者多个Shard ,这些Shard使用相同的Config Set 。
+B.Config Set 是SolrCore 提供服务必须的一组配置文件，包括solrconfig.xml和schema.xml等
+C.Shard是Collection 的逻辑分片，每个Shard都包含一个或者多个replicas,通过选举确定哪个replica是leader，只有Leader reolica 才能进行处理索引和查询请求。
+D.Replica 只有处于active 状态时才会接受索引和查询请求
+Answer: ABD
+
+Q5
+关于Kerberos部署，描述正确的是？
+A.Kerberos仅有一个角色
+B.Kerberos服务在同一个节点上有两个实例
+C.Kerberos服务采用主备模式部署
+D.Kerberos服务必须和LDAP服务部署在同一个节点
+Answer:B
+
+Q6
+关于Kerberos 的TGT以下说法错误的是？
+A.TGT全程为票据授权票据，主要由KDC服务器生成
+B.TGT一次生成之后，可以无限期使用
+C.TGT在客户端的存在方式可以是在内存中存储，也可以在本地以文件的形式存储
+D.TGT中主要的信息有当前该票据的有效时长和授予该 TGT 的服务端IP以及分发给的客户端的名称
+Answer: B
+
+
+Q7
+以下关于Solr角色描述正确的是？
+A.SolrServerAdmin属于管理角色，需要部署在管理节点上
+B.SolrServer负责提供创建索引和全文检查等服务，是 Solr 集群中的数据计算和处理单元
+C.HBaselndexer 是 Solr 的必要角色，提供将HBase 中数据导入至 Solr 服务
+Answer: B
+
+Q8
+Kerberos系统设计上采用客户端服务器结构与DES加密技术，能够进行相互认证，客户端和服务器端均可以对对方身份进行认证。
+A.正确
+B.错误
+Answer: A
+
+Q9
+Solr可以对结构化、半结构化、非结构化数据建立索引，并提供全文检索能力。
+A.正确
+B.错误
+Answer: A
+
+Q10
+Kerberos协议中TGT主要用于应用侧与需要访问的服务之间的安全会话。
+A.正确
+B.错误
+Answer: B
+
+ZKFC
+Q1
+下面关于ZKFC的说法错误的是？
+A.ZKFC（ZKFailoverController）作为一个Zookeeper集群的客户端，用来监控NameNode的状态信息
+B.ZKFC进程需要在NameNode的节点和Zookeeper的Leader节点中部署
+C.Standby NameNode通过Zookeeper感知Active NameNode的状态，一旦Active NameNode宕机， Standby NameNode就会执行升主操作
+D.HDFS NameNode的ZKFC连接到Zookeeper，把主机名等信息保存到Zookeeper中
+Answer: B
+
+
+hadoop
+Q1
+Hadoop通过ResourceManager对集群资源进行管理，它的主要功能有？（多选）
+A.集群资源调度
+B.应用程序管理
+C.集群资源管理
+D.日志管理
+Answer: ABC
+
+Q2
+Kerberos 只能对集群内的服务提供安全认证。
+A.正确
+B.错误
+Answer: B
+
+Q3
+Hadoop中，如果将yam.scheduler.capacity.toot.QueueA.minimum-user-limit-percent设置为50，下面说法错误的是？
+A.一个用户提交任务，可以使用QueueA 的100%的资源
+B.QueueA 中的每个用户最多只能获得50%的
+C.如果 QueueA 中已经有2个用户的任务运行，这时第3个用户提交的任务需要等待释放资源
+D.QueueA 中必须保障每个用户至少得到50%的资源
+Answer: B
+
+Q4
+基于Hadoop 开源大数据平台主要提供了针对数据分布式计算和存储能力，如下属于分布式存储组件的有？（多选）
+A.MR
+B.Spark
+C.HDFS
+D.HBase
+Answer: CD
+
+Q5
+RDD可以从Hadoop兼容的文件系统生成，生成之后可以通过调用RDD的算子对RDD 的数据进行部分更新
+A.正确
+B.错误
+Answer: B
+
+Q6
+Yam容量调度器的主要特点有哪些？
+A.容量保证
+B.灵活化
+C.多重租赁
+D.动态更新配置文件
+Answer: ABCD
+

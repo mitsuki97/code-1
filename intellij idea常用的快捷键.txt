@@ -1,0 +1,21 @@
+Shift+Click，可以关闭文件
+Ctrl+N，可以快速打开类
+Ctrl+Shift+Space，自动补全代码
+Ctrl+Alt+L，格式化代码
+Ctrl+空格，代码提示（与系统输入法快捷键冲突
+Alt+Shift+Up/Down，上/下移一行
+Ctrl+X，删除行
+Ctrl+D，复制行
+Ctrl+Shift+U，大小写转化
+Ctrl+Y，删除当前行
+Ctrl+/或Ctrl+Shift+/，注释（//或者/**/
+Ctrl+Shift+J，整合两行
+Shift+Enter，向下插入新行
+Ctrl+Enter，上插一行
+
+Ctrl+Shift+F10，运行
+
+
+win10常用
+CTRL+F4  关闭当前网页窗口
+ALT+F4    关闭当前页面窗口

@@ -1,0 +1,318 @@
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript">
+   function date(){    
+     var date=document.getElementById("num").value;
+     if(!date.match(/^(\d{4}-\d{2}-\d{2})$/)) 
+        alert("请输入正确的日期格式，如****-**-**");
+      }
+         function identity(){     
+     var identity=document.getElementById("num").value;
+     if(!identity.match(/^\d{18}$/)) 
+        alert("请输入正确的身份证格式，如321323********0673");
+      }
+       function phone(){     
+     var phone=document.getElementById("num").value;
+     if(!phone.match(/^\d{11}$/)) 
+        alert("请输入正确的号码格式，如152****2522");
+      }
+        function postcode(){     
+     var postcode=document.getElementById("num").value;
+     if(!postcode.match(/^\d{6}$/)) 
+        alert("请输入正确的邮编格式，如223700");
+      }
+      
+        
+        
+
+    
+</script>
+<title>书人教育信息填报</title>
+</head>
+
+<body bgcolor="#d0d0d0">
+
+
+<form action="/demo/demo_form.asp">
+<p>
+<img src ="/i/eg_cute.gif" align ="left"> 
+</p>
+<p>
+<img src ="/i/eg_cute.gif" align ="right"> 
+</p>
+<h5 align="center">2017年书人教育班主任课表</h5>
+
+
+<table border="2" align="center">
+<tr>
+  <th>班主任姓名</th>
+  <td width="60"><form><input type="text" name=""></form></td>
+
+  <th>性别</th>
+  <td><input type="radio" name="sex" value="man" checked>man<input type="radio" name="sex" value="girl">girl</td>
+  </tr>
+  <tr>
+  <th>出生年月</th>
+  <td width="60"><input type="number" name="出生年月" id="num"/> <input type="button" value="date" onClick="return date()"/></td>
+  <th>身份证号</th>
+  <td><input type="number" name="身份证号码" id="num">         <input type="button" value="identity" onClick="return identity()"/> </td>
+  <th width="100">联系电话</th>
+  <td width="100"><input type="number" name="联系电话" id="num"> <input type="button" value="phone" onClick="return phone()"/> </td>
+  </tr>
+
+  <tr>
+  <th>联系地址或现住址</th>
+    <td >
+    <input type="text" style="height:110px;width:400px" name="address" ><br>
+    例如：x区x街道x社区x楼院x室x号
+    </td>
+    <th>邮编</th>
+    <td><input type="number" name="邮编" id="num" > <input type="button" value="postcode" onClick="return postcode()"/> </td>
+  </tr>
+
+    <tr>
+      <th>政治面貌</th>
+          <td><input type="radio" name="politics">党员<input type="radio" name="politics">团员<input type="radio" name="politics">民主党派<input type="radio" name="politics">群众</td>
+          <th>职业</th>
+          <td colspan="4"><input type="radio" name="zhiye">本科生<input type="radio" name="zhiye">研究生<input type="radio" name="zhiye">博士及以上<input type="radio" name="zhiye"></td>
+    </tr>
+    <tr>
+    <th>选择年级</th>
+      <td colspan="5">  
+      <table border="0">
+    <td><input type="checkbox">一年级</td>
+    <td><input type="checkbox">三年级</td>
+     <td><input type="checkbox">四年级</td>
+      <td><input type="checkbox">五年级</td>
+       <td><input type="checkbox">六年级</td>
+         </table></td>
+    </tr>
+    <tr  >
+    <td  colspan="6" align="center" style="text-align:center;" >
+      <input type="submit" value="提交">
+    </td>
+  </tr>
+
+
+
+</table>
+
+<body background="/i/eg_background.jpg">
+
+<p>
+<img src ="/i/eg_cute.gif" align ="left"> 
+</p>
+<p>
+<img src ="/i/eg_cute.gif" align ="right"> 
+</p>
+<div style="color:#FF0000">
+
+<h5 align="center">国际竞赛报名登记表</h5>
+</div>
+
+<table border="1" align="center">
+<tr>
+  <th>姓名</th><th>报名课程</th><th>联系方式</th><td>性别</td><th>出生年月</th><th>身份证号码</th><th>是否缴费</th><th>报名截止时间</th><th>提交</th>
+</tr>
+<tr>
+  <td>
+<form>
+<input type="text" name="name"></form></td>
+  <td>
+
+<select 报名课程="报名课程">
+<option value="蓝桥杯" select="selected">蓝桥杯</option>
+<option value="思程杯">思程杯</option>
+<option value="网博杯">网博杯</option>
+<option value="英语四级">英语四级</option>
+</select>
+
+  </td>
+
+<td>
+<form>
+<input type="text" contect="contect"></form>
+</td>
+<td>
+<input type="radio" name="sex" value="man" checked>man
+<input type="radio" name="sex" value="girl">girl
+</td>
+<td><input type="date" name=""></td>
+<td>
+ <input type="number" name="身份证号码" maxlength="13">
+</td>
+<td>
+  <form>
+<input type="radio" name="money" value="no" checked>no
+<br>
+<input type="radio" name="money" value="yes">yes
+</form>
+</td>
+ <td>2018.1.1</td>
+<td style="text-align:center;">
+<input type="submit" value="提交">
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<input type="text" name="name"></form></td>
+
+  <td>
+  <select 报名课程="报名课程">
+<option value="蓝桥杯" select="selected">蓝桥杯</option>
+<option value="思程杯">思程杯</option>
+<option value="网博杯">网博杯</option>
+<option value="英语四级">英语四级</option>
+</select>
+</td>
+<td>
+  <form>
+<input type="text" contect="contect"></form>
+</td> 
+<td>
+<input type="radio" name="sex" value="man" checked>man
+<input type="radio" name="sex" value="girl">girl
+</td>
+<td><input type="date" name=""></td>
+<td>
+ <input type="number" name="身份证号码" maxlength="13">
+</td>
+<td>
+  <form>
+<input type="radio" name="money" value="no" checked>no
+<br>
+<input type="radio" name="money" value="yes">yes
+</form>
+</td>
+<td>2018.1.1</td>
+<td style="text-align:center;">
+<input type="submit" value="提交">
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<input type="text" name="name"></form></td>
+
+  <td>
+  <select 报名课程="报名课程">
+<option value="蓝桥杯" select="selected">蓝桥杯</option>
+<option value="思程杯">思程杯</option>
+<option value="网博杯">网博杯</option>
+<option value="英语四级">英语四级</option>
+</select>
+</td>
+<td>
+  <form>
+<input type="text" contect="contect"></form>
+</td> 
+<td>
+<input type="radio" name="sex" value="man" checked>man
+<input type="radio" name="sex" value="girl">girl
+</td>
+<td><input type="date" name=""></td>
+<td>
+ <input type="number" name="身份证号码" maxlength="13">
+</td>
+<td>
+  <form>
+<input type="radio" name="money" value="no" checked>no
+<br>
+<input type="radio" name="money" value="yes">yes
+</form>
+</td>
+<td>2018.1.1</td>
+<td style="text-align:center;">
+<input type="submit" value="提交">
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<input type="text" name="name"></form></td>
+
+  <td>
+  <select 报名课程="报名课程">
+<option value="蓝桥杯" select="selected">蓝桥杯</option>
+<option value="思程杯">思程杯</option>
+<option value="网博杯">网博杯</option>
+<option value="英语四级">英语四级</option>
+</select>
+</td>
+<td>
+    <form>
+<input type="text" contect="contect"></form>
+</td>
+<td>
+<input type="radio" name="sex" value="man" checked>man
+<input type="radio" name="sex" value="girl">girl
+</td>
+<td><input type="date" name=""></td>
+<td>
+ <input type="number" name="身份证号码" maxlength="13">
+ 
+ </td>
+ <td>
+<input type="radio" name="money" value="no" checked>no
+<br>
+<input type="radio" name="money" value="yes">yes
+
+</td>
+<td>2018.1.1</td>
+<td style="text-align:center;">
+<input type="submit" value="提交">
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<input type="text" name="name"></form></td>
+
+  <td>
+  <select 报名课程="报名课程">
+<option value="蓝桥杯" select="selected">蓝桥杯</option>
+<option value="思程杯">思程杯</option>
+<option value="网博杯">网博杯</option>
+<option value="英语四级">英语四级</option>
+</select>
+</td>
+<td>
+    <form>
+<input type="text" contect="contect"></form>
+</td>
+<td>
+<input type="radio" name="sex" value="man" checked>man
+<input type="radio" name="sex" value="girl">girl
+</td>
+<td><input type="date" name=""></td>
+<td>
+ <input type="number" name="身份证号码" maxlength="13">
+</td>
+<td>
+  <form>
+<input type="radio" name="money" value="no" checked>no
+<br>
+<input type="radio" name="money" value="yes">yes
+</form>
+</td>
+ <td>2018.1.1</td>
+<td style="text-align:center;">
+<input type="submit" value="提交">
+</td>
+</td>
+</tr>
+</table>
+<p align="center"><a href="http://www.baidu.com/">http://www.baidu.com/</a> 如有疑问请访问。</p>
+
+
+</form>
+
+</body>
+</html>
